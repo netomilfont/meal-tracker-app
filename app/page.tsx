@@ -170,7 +170,7 @@ export default function Home() {
   ? meals.filter((meal) => meal.type === filterType)
   : meals;
 
-  {console.log(filteredMeals)}
+  console.log(filteredMeals);
 
   if (loading) {
     return (
@@ -316,9 +316,8 @@ export default function Home() {
                     className="w-full sm:w-[48%] lg:w-[30%] bg-white p-6 rounded-xl shadow-md flex flex-col justify-between hover:-translate-y-1 transition duration-300"
                   >
                     <div>
-                    
                       <img
-                          src={meal.image}
+                          src={ meal.image || "/default-image.jpg"}
                           alt={meal.name}
                           className="w-full h-40 object-cover rounded mb-2"
                       />
@@ -362,9 +361,9 @@ export default function Home() {
                 ))}
               </ul>
             )}
-          </div>
+        </div>
       </div>
-        <div className=" flex justify-center items-center gap-4 fixed bottom-4 right-4 bg-red-600 shadow-lg rounded-xl p-3 z-50">
+      <div className=" flex justify-center items-center gap-4 fixed bottom-4 right-4 bg-red-600 shadow-lg rounded-xl p-3 z-50">
         <p className="text-sm text-white">Calorias:</p>
         <p className="text-sm font-bold text-white">{totalCaloriesToday}</p>
       </div>
