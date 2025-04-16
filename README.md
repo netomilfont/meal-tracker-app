@@ -2,7 +2,7 @@
 
 **MealTracker** é uma aplicação full stack para registrar, visualizar e gerenciar suas refeições diárias. Ideal para quem deseja acompanhar melhor sua alimentação e manter um controle calórico eficiente.
 
-🔗 [Acesse o app online](https://my-meals-6xuw85x10-netomilfonts-projects.vercel.app/)
+🔗 [Acesse o app online](hhttps://my-meals-app.vercel.app/)
 
 ## ✨ Funcionalidades
 
