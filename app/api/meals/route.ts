@@ -3,7 +3,6 @@ import { connectToDatabase } from "../../../lib/mongodb";
 import { Meal } from "../../../models/Meal";
 import { WithId, Document } from "mongodb";
 
-// Função POST para adicionar refeição
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

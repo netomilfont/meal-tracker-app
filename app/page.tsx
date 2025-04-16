@@ -131,7 +131,7 @@ export default function Home() {
   
       if (response.ok) {
         toast.success("Refeição excluída com sucesso!");
-        fetchMeals(); // Recarrega a lista
+        fetchMeals();
       } else {
         const error = await response.json();
         toast.error(`Erro: ${error.message || "Erro ao excluir"}`);
@@ -144,8 +144,6 @@ export default function Home() {
   const filteredMeals = filterType
   ? meals.filter((meal) => meal.type === filterType)
   : meals;
-
-  console.log(filteredMeals);
 
   if (loading) {
     return (

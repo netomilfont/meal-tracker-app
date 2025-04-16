@@ -1,14 +1,13 @@
-import { NextRequest, NextResponse } from "next/server"; // Para manipular requisições e respostas
-import { ObjectId } from "mongodb"; // Para manipular ObjectId do MongoDB
-import { connectToDatabase } from "@/lib/mongodb"; // Sua função para conectar ao MongoDB
+import { NextRequest, NextResponse } from "next/server";
+import { ObjectId } from "mongodb";
+import { connectToDatabase } from "@/lib/mongodb";
 
-// Tipagem do contexto com params como Promise
 type RouteContext = {
   params: Promise<{ id: string }>;
 };
 
 export async function PUT(req: NextRequest, context: RouteContext) {
-  const { id } = await context.params;  // Usamos await para resolver a Promise
+  const { id } = await context.params;
 
   if (!ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID inválido" }, { status: 400 });
@@ -41,7 +40,7 @@ export async function PUT(req: NextRequest, context: RouteContext) {
 }
 
 export async function DELETE(req: NextRequest, context: RouteContext) {
-  const { id } = await context.params;  // Aqui também usamos await
+  const { id } = await context.params;
 
   if (!ObjectId.isValid(id)) {
     return NextResponse.json({ error: "ID inválido" }, { status: 400 });

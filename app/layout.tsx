@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // adicione os pesos que você for usar
+  weight: ["400", "600", "700"],
 });
 
 export default function RootLayout({
