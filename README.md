@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥗 MealTracker
 
-## Getting Started
+**MealTracker** é uma aplicação full stack para registrar, visualizar e gerenciar suas refeições diárias. Ideal para quem deseja acompanhar melhor sua alimentação e manter um controle calórico eficiente.
 
-First, run the development server:
+🔗 [Acesse o app online](https://my-meals-6xuw85x10-netomilfonts-projects.vercel.app/)
 
-```bash
+## ✨ Funcionalidades
+
+- ✅ Cadastro de refeições com nome, descrição, calorias, data/hora e tipo (ex: café da manhã, almoço, etc.)
+- 📅 Visualização de refeições em cards com data e informações detalhadas
+- ✏️ Edição e exclusão de refeições
+- 🔍 Filtro por tipo de refeição
+- 📊 Estatísticas de consumo (em breve)
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend:** [Next.js 14 (App Router)](https://nextjs.org/)
+- **Backend:** API Routes do Next.js
+- **Banco de dados:** [MongoDB Atlas](https://www.mongodb.com/atlas)
+- **Deploy:** [Vercel](https://vercel.com/)
+- **Upload de Imagens:** Em desenvolvimento
+
+## 🧪 Como Rodar Localmente
+
+1. Clone o repositório:
+
+git clone https://github.com/netomilfont/meal-tracker-app.git
+cd meal-tracker-app
+
+2. Instale as dependências:
+   
+npm install
+
+3. Configure as variáveis de ambiente:
+
+Crie um arquivo .env.local com as seguintes variáveis:
+
+MONGODB_URI=seu_mongodb_uri
+
+4. Rode o projeto:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse em: http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🖼️ Upload de Imagens (em progresso)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📌 Roadmap
+ CRUD completo de refeições
 
-## Learn More
+ Filtros
 
-To learn more about Next.js, take a look at the following resources:
+📷 Captura de Tela
+![image](https://github.com/user-attachments/assets/5db921fd-38ff-4f8e-bd76-d70c2a0f1ba8)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+👨‍💻 Desenvolvedor
+Neto Milfont
+GitHub | LinkedIn
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feito com 💚 usando Next.js + MongoDB
