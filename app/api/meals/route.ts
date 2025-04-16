@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
       datetime: new Date(datetime),
       type,
       createdAt: new Date(),
-      image: body.image || "",
     });
 
     return NextResponse.json({ message: "Refeição adicionada!", id: result.insertedId }, { status: 201 });
@@ -48,7 +47,6 @@ export async function GET() {
       datetime: doc.datetime,
       type: doc.type,
       createdAt: doc.createdAt,
-      image: doc.image || "",
     }));
 
     return NextResponse.json(meals);

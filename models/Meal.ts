@@ -6,5 +6,4 @@ export interface Meal {
   datetime: Date | string;
   type: string;
   createdAt: Date;
-  image: string;
 }

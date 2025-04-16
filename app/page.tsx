@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import { useState, useEffect } from "react";
@@ -6,6 +5,8 @@ import { Meal } from "../models/Meal";
 import toast from "react-hot-toast";
 import { Edit3, Trash2 } from "lucide-react";
 import { useRouter } from 'next/navigation'
+import Image from "next/image";
+import DefaultImage from "../public/default-image.png";
 
 export default function Home() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -17,7 +18,6 @@ export default function Home() {
     calories: "",
     datetime: "",
     type: "",
-    image: "",
   });
   const [editingId, setEditingId] = useState<string | null>(null);
   const [filterType, setFilterType] = useState<string>("");
@@ -77,37 +77,12 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
-    let imageUrl = '';
-  
-    const fileInput = document.querySelector('input[name="image"]') as HTMLInputElement;
-    const file = fileInput?.files?.[0];
-  
-    if (file) {
-      const imageForm = new FormData();
-      imageForm.append('image', file);
-  
-      try {
-        const uploadRes = await fetch('/api/upload', {
-          method: 'POST',
-          body: imageForm,
-        });
-  
-        const uploaded = await uploadRes.json();
-        console.log(uploaded)
-        imageUrl = uploaded.url;
-      } catch (uploadErr) {
-        toast.error(`Erro ao fazer upload da imagem: {}${uploadErr}`);
-        return;
-      }
-    }
-  
     const formDataToSubmit = {
       name: formData.name,
       description: formData.description,
       calories: formData.calories,
       datetime: formData.datetime,
       type: formData.type,
-      image: imageUrl, // incluímos a URL da imagem aqui
     };
   
     try {
@@ -133,7 +108,6 @@ export default function Home() {
           calories: "",
           datetime: "",
           type: "",
-          image: "",
         });
         setEditingId(null);
         setShowModal(false);
@@ -253,13 +227,6 @@ export default function Home() {
                 <option value="Lanche da tarde">Lanche da tarde</option>
                 <option value="Janta">Janta</option>
               </select>
-              <input
-                type="file"
-                accept="image/*"
-                name="image"
-                className="w-full p-2 border rounded"
-              />
-
               <div className="flex justify-end gap-2">
                 <button
                   type="button"
@@ -317,10 +284,10 @@ export default function Home() {
                     className="w-full sm:w-[48%] lg:w-[30%] bg-white p-6 rounded-xl shadow-md flex flex-col justify-between hover:-translate-y-1 transition duration-300"
                   >
                     <div>
-                      <img
-                          src={ meal.image || "/default-image.jpg"}
-                          alt={meal.name}
-                          className="w-full h-40 object-cover rounded mb-2"
+                      <Image
+                          src={DefaultImage}
+                          alt="Imagem de garfo e faca."
+                          className="w-full h-40 object-cover rounded-lg mb-4"
                       />
                       <h3 className="text-xl font-bold text-red-600">{meal.name}</h3>
                       <p className="text-gray-700">{meal.description}</p>
@@ -345,7 +312,6 @@ export default function Home() {
                         calories: String(meal.calories),
                         datetime: new Date(meal.datetime).toISOString().slice(0, 16),
                         type: meal.type,
-                        image: meal.image,
                       });
                       setEditingId(meal._id);
                       setShowModal(true);
